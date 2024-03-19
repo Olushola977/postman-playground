@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "7e52f8b9-e735-42ce-ba2d-b4842c07f115",
+		"name": "Tag Testing Multi-Structure",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29385150",
+		"_collection_link": "https://gold-crescent-908246.postman.co/workspace/Collection-Automation~e263e5e8-93ee-4452-9ffe-a29e71fddeb1/collection/29385150-7e52f8b9-e735-42ce-ba2d-b4842c07f115?action=share&source=collection_link&creator=29385150"
+	},
+	"item": [
+		{
+			"name": "Initial Request",
+			"item": [
+				{
+					"name": "initial request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.unset(\"requestToRun\")",
+									"const collectionData = pm.response.json().collection",
+									"",
+									"let requestList = []",
+									"",
+									"const traverse = (list, tag) => {",
+									"\tlist.item.forEach((folder) => {",
+									"\t\tif (isFolder(folder.name, \" \")) {",
+									"\t\t\tfolder.item.forEach((request) => {",
+									"\t\t\t\tif (isFolder(request.name) == false && request.name.includes(tag)) {",
+									"\t\t\t\t\trequestList.push(request)",
+									"\t\t\t\t} else {",
+									"\t\t\t\t\tif (isFolder(request.name)) {",
+									"\t\t\t\t\t\ttraverse(request, tag)",
+									"\t\t\t\t\t}",
+									"\t\t\t\t}",
+									"\t\t\t})",
+									"\t\t} else if (!isFolder(folder.name) && folder.name.includes(tag)) {",
+									"\t\t\trequestList.push(folder)",
+									"\t\t}",
+									"\t})",
+									"\treturn requestList",
+									"}",
+									"",
+									"const isFolder = (str) => {",
+									"\tif (str.charAt(0) !== str.charAt(0).toUpperCase() && str.includes(\" \")) {",
+									"\t\treturn false",
+									"\t}",
+									"\treturn true",
+									"}",
+									"",
+									"const requests = traverse(collectionData, pm.environment.get(\"tags\"))",
+									"console.log(\"requests: \", requests)",
+									"let requestToRun = requests.map((item) => item.name)",
+									"let val = requestToRun.pop()",
+									"pm.environment.set(\"requestToRun\", requestToRun)",
+									"val ? postman.setNextRequest(val) : postman.setNextRequest(null)",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Api-Key",
+								"value": "{{postman-api-key}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api.getpostman.com/collections/:collection_id",
+							"protocol": "https",
+							"host": [
+								"api",
+								"getpostman",
+								"com"
+							],
+							"path": [
+								"collections",
+								":collection_id"
+							],
+							"variable": [
+								{
+									"key": "collection_id",
+									"value": "{{collection-id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Cat Breed",
+			"item": [
+				{
+					"name": "Get Cat Breed Duplicate",
+					"item": [
+						{
+							"name": "get_Cat_Breeds [Smoke] Duplicate",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "application/json"
+									},
+									{
+										"key": "X-CSRF-TOKEN",
+										"value": "ImPW8PUVVUnjFhDt6fDndrZu7kibfnbow4oWAqKH"
+									}
+								],
+								"url": {
+									"raw": "https://catfact.ninja/breeds",
+									"protocol": "https",
+									"host": [
+										"catfact",
+										"ninja"
+									],
+									"path": [
+										"breeds"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "get_Cat_Breeds [Smoke]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CSRF-TOKEN",
+								"value": "ImPW8PUVVUnjFhDt6fDndrZu7kibfnbow4oWAqKH"
+							}
+						],
+						"url": {
+							"raw": "https://catfact.ninja/breeds",
+							"protocol": "https",
+							"host": [
+								"catfact",
+								"ninja"
+							],
+							"path": [
+								"breeds"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Random Cat Fact",
+			"item": [
+				{
+					"name": "get_Random_Cat_Fact [Regression]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CSRF-TOKEN",
+								"value": "ImPW8PUVVUnjFhDt6fDndrZu7kibfnbow4oWAqKH"
+							}
+						],
+						"url": {
+							"raw": "https://catfact.ninja/fact",
+							"protocol": "https",
+							"host": [
+								"catfact",
+								"ninja"
+							],
+							"path": [
+								"fact"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Random Cat Facts",
+			"item": [
+				{
+					"name": "get_Random_Cat_Facts [Smoke] [Regression]",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "accept",
+								"value": "application/json"
+							},
+							{
+								"key": "X-CSRF-TOKEN",
+								"value": "ImPW8PUVVUnjFhDt6fDndrZu7kibfnbow4oWAqKH"
+							}
+						],
+						"url": {
+							"raw": "https://catfact.ninja/facts",
+							"protocol": "https",
+							"host": [
+								"catfact",
+								"ninja"
+							],
+							"path": [
+								"facts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"if (pm.info.requestName !== \"initial request\") {",
+					"    let requestToRun = pm.environment.get(\"requestToRun\")",
+					"    let val = requestToRun.pop()",
+					"    pm.environment.set(\"requestToRun\", requestToRun)",
+					"    val ? postman.setNextRequest(val) : postman.setNextRequest(null)",
+					"}"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "collection-id",
+			"value": "29385150-7e52f8b9-e735-42ce-ba2d-b4842c07f115"
+		},
+		{
+			"key": "postman-api-key",
+			"value": "PMAK-65f222cbc471d200012dae21-db5f8c1e4d2957c8df6ca9503db400df44"
+		}
+	]
+}
