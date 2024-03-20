@@ -4,7 +4,7 @@
 		"name": "Tag Testing Multi-Structure",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "29385150",
-		"_collection_link": "https://gold-crescent-908246.postman.co/workspace/Collection-Automation~e263e5e8-93ee-4452-9ffe-a29e71fddeb1/collection/29385150-7e52f8b9-e735-42ce-ba2d-b4842c07f115?action=share&source=collection_link&creator=29385150"
+		"_collection_link": "https://web.postman.co/workspace/Collection-Automation~e263e5e8-93ee-4452-9ffe-a29e71fddeb1/collection/29385150-7e52f8b9-e735-42ce-ba2d-b4842c07f115?source=collection_link"
 	},
 	"item": [
 		{
@@ -256,10 +256,6 @@
 		{
 			"key": "collection-id",
 			"value": "29385150-7e52f8b9-e735-42ce-ba2d-b4842c07f115"
-		},
-		{
-			"key": "postman-api-key",
-			"value": "PMAK-65f222cbc471d200012dae21-db5f8c1e4d2957c8df6ca9503db400df44"
 		}
 	]
 }
