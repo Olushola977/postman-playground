@@ -37,15 +37,8 @@
 				"url": {
 					"raw": "https://api.getpostman.com/collections/:collection_id",
 					"protocol": "https",
-					"host": [
-						"api",
-						"getpostman",
-						"com"
-					],
-					"path": [
-						"collections",
-						":collection_id"
-					],
+					"host": ["api", "getpostman", "com"],
+					"path": ["collections", ":collection_id"],
 					"variable": [
 						{
 							"key": "collection_id",
@@ -73,13 +66,8 @@
 				"url": {
 					"raw": "https://catfact.ninja/breeds",
 					"protocol": "https",
-					"host": [
-						"catfact",
-						"ninja"
-					],
-					"path": [
-						"breeds"
-					]
+					"host": ["catfact", "ninja"],
+					"path": ["breeds"]
 				}
 			},
 			"response": []
@@ -101,13 +89,8 @@
 				"url": {
 					"raw": "https://catfact.ninja/fact",
 					"protocol": "https",
-					"host": [
-						"catfact",
-						"ninja"
-					],
-					"path": [
-						"fact"
-					]
+					"host": ["catfact", "ninja"],
+					"path": ["fact"]
 				}
 			},
 			"response": []
@@ -129,13 +112,8 @@
 				"url": {
 					"raw": "https://catfact.ninja/facts",
 					"protocol": "https",
-					"host": [
-						"catfact",
-						"ninja"
-					],
-					"path": [
-						"facts"
-					]
+					"host": ["catfact", "ninja"],
+					"path": ["facts"]
 				}
 			},
 			"response": []
@@ -160,9 +138,7 @@
 			"listen": "test",
 			"script": {
 				"type": "text/javascript",
-				"exec": [
-					""
-				]
+				"exec": [""]
 			}
 		}
 	],
@@ -173,7 +149,7 @@
 		},
 		{
 			"key": "postman-api-key",
-			"value": "PMAK-65f222cbc471d200012dae21-db5f8c1e4d2957c8df6ca9503db400df44"
+			"value": ""
 		}
 	]
 }
