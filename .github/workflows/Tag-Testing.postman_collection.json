@@ -16,7 +16,7 @@
 						"exec": [
 							"pm.environment.unset(\"requestToRun\")",
 							"const requestList = pm.response.json().collection.item.map((a) => a.name)",
-							"let requestToRun = requestList.filter((a) => a.includes(pm.environment.get(\"tags\")) && a)",
+							"let requestToRun = requestList.filter((a) => a.includes(pm.environment.get(\"tags\")))",
 							"let val = requestToRun.pop()",
 							"pm.environment.set(\"requestToRun\", requestToRun)",
 							"val ? postman.setNextRequest(val) : postman.setNextRequest(null)"
